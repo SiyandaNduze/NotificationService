@@ -9,7 +9,7 @@ namespace NotificationService.Controllers
     public class NotificationController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Send(NotificationRequest request)
+        public IActionResult Send([FromBody] NotificationRequest request)
         {
             NotificationBackgroundWorker.Enqueue(request);
             return Accepted(new { status = "Accepted" });

@@ -1,6 +1,11 @@
 @NotificationService_HostAddress = http://localhost:5135
 
-GET {{NotificationService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
+### Send notification
+POST {{NotificationService_HostAddress}}/api/notifications
+Content-Type: application/json
+{
+  "type": "Email",
+  "to": "test@example.com",
+  "subject": "Test",
+  "message": "Hello world"
+}
